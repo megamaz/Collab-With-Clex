@@ -11,6 +11,7 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         transform.LookAt(player);
+        //moving somehow already works plese help AAAAAAAAAAAAAAAAAAAAA
         
     }
 }
