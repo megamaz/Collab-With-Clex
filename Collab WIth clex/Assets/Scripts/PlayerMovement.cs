@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         /*
         Movement script
         I again still don't know what I'm doing
@@ -32,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (isgruonded && velocity.y < 0){
             velocity.y = -2f;
+            Debug.Log("Reset!");
         }
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
@@ -44,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(velocity * Time.deltaTime);
 
-        if(Input.GetButtonDown("Jump") && isgruonded ){
+        if(Input.GetKeyDown(KeyCode.Space) && isgruonded ){
             velocity.y = Mathf.Sqrt(JumpHeight * -2 * gravity);
         }
     }
