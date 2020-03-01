@@ -4,36 +4,36 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    
+
     public CharacterController controller;
-    
+
     public float speed = 12f;
 
     Vector3 velocity;
     public float gravity = -9.81f;
-    public float JumpHeight = 3f;
+    public float jumpHeight = 3f;
 
     public Transform groundCheck;
     public float distance;
-    public LayerMask groundmask;
-    public float grounddistance = 0.04f;
-    bool isgruonded; //I realized i made a typo in this variable too late. Oops.
+    public LayerMask groundMask;
+    public float groundDistance = 0.04f;
+    bool isGrounded;
 
     // Update is called once per frame
     void Update()
     {
-        
+
         /*
         Movement script
         I again still don't know what I'm doing
         
         megamaz
         */
-        isgruonded = Physics.CheckSphere(groundCheck.position, grounddistance, groundmask);
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        if (isgruonded && velocity.y < 0){
+        if (isGrounded && velocity.y < 0)
+        {
             velocity.y = -2f;
-            Debug.Log("Reset!");
         }
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
@@ -46,8 +46,9 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(velocity * Time.deltaTime);
 
-        if(Input.GetKeyDown(KeyCode.Space) && isgruonded ){
-            velocity.y = Mathf.Sqrt(JumpHeight * -2 * gravity);
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
         }
     }
 }

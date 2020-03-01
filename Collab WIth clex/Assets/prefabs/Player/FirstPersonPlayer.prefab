@@ -57,7 +57,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1e+15
   field of view: 60
   orthographic: 0
@@ -230,13 +230,17 @@ MonoBehaviour:
   controller: {fileID: 75107733426086693}
   speed: 12
   gravity: -19.61
-  JumpHeight: 3
+  jumpHeight: 3
   groundCheck: {fileID: 75107732852977913}
   distance: 0
-  groundmask:
+  groundMask:
     serializedVersion: 2
     m_Bits: 512
-  grounddistance: 0.04
+  groundDistance: 0.04
+  wallMask:
+    serializedVersion: 2
+    m_Bits: 1536
+  playerCollider: {fileID: 75107733426086693}
 --- !u!1 &75107733535339296
 GameObject:
   m_ObjectHideFlags: 0
