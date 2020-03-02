@@ -329,6 +329,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &355194051 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 75107733426086692, guid: 473214cee1393674bb3f2de155ff10ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 113813778}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &447650098
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -616,6 +622,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1579718379899083496, guid: eb7a8b7b7c5fe524a9e9577efe5acedf,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 355194051}
+    - target: {fileID: 1579718379899083496, guid: eb7a8b7b7c5fe524a9e9577efe5acedf,
+        type: 3}
+      propertyPath: Damping
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5578064709483875932, guid: eb7a8b7b7c5fe524a9e9577efe5acedf,
         type: 3}
       propertyPath: m_LocalPosition.x

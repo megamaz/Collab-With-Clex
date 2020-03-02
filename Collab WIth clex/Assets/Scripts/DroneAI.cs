@@ -6,9 +6,10 @@ public class DroneAI : MonoBehaviour
 {
 
     public Transform Player;
-    public float MoveSpeed = 4;
-    public float MaxDist = 10;
-    public float MinDist = 1;
+    public float MoveSpeed = 2;
+    public float MaxDist = 40;
+    public float MinDist = 15;
+    public float Damping = 1f;
     private bool useGrivaty;
     bool isDead = false;
     private bool Kinematic = false;
@@ -17,10 +18,12 @@ public class DroneAI : MonoBehaviour
     {
         if (isDead == false)
         {
-            // Enemy will look at player
-            transform.LookAt(Player);
-            // Enemy will follow if distance is within these parameters(MinDist and MaxDist)
-            if (Vector3.Distance(transform.position, Player.position) >= MinDist)
+            // Enemy will look at player but at a slower rate (controlled with the damping variable)
+            var rotation = Quaternion.LookRotation(Player.position - transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * Damping);
+        
+        // Enemy will follow if distance is within these parameters(MinDist and MaxDist)
+        if (Vector3.Distance(transform.position, Player.position) >= MinDist)
             {
                 transform.position += transform.forward * MoveSpeed * Time.deltaTime;
 
