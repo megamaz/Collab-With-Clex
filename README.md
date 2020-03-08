@@ -1,3 +1,1 @@
-# Collab With Clex
-## and code crash
-# And GIZMO
+# our first game as the butter squad studios
