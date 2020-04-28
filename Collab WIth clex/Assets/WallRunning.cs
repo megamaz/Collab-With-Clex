@@ -7,15 +7,15 @@ public class WallRunning : MonoBehaviour
 
     public float targetDistance;
     public GameObject player;
-    public float minDist = 5f;
+    public float minDist = 3f;
 
     void Update()
     {
-        RaycastHit theHit;
+        RaycastHit hit;
         {
-            if (Physics.Raycast (transform.position, transform.TransformDirection (Vector3.forward), out theHit))
+            if (Physics.Raycast (transform.position, transform.right, out hit) || Physics.Raycast(transform.position, -transform.right, out hit))
             {
-                targetDistance = theHit.distance;
+                targetDistance = hit.distance;
 
                 if (targetDistance < minDist)
                 {
